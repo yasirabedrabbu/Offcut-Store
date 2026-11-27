@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { ITEMS } from '../lib/products';
+import { StoreHeader } from '../src/components/store/StoreHeader';
+import { StoreFooter } from '../src/components/store/StoreFooter';
 
 const categories = ['Clothes', 'Shoes', 'Bags', 'Accessories'];
 const looks = ['Everyday uniform', 'After hours', 'Built for movement'];
 
 export default function Home() {
-  return <main className="editorial-home">
+  return <><StoreHeader /><main className="editorial-home">
     <section className="editorial-hero">
       <div className="hero-copy"><p className="eyebrow">Offcut / Limited run</p><h1>Made from what remains.</h1><p>Considered pieces for everyday movement. Small batches, no restocks.</p><Link className="editorial-button" href="/shop">Shop the collection</Link></div>
       <div className="hero-panels"><div className="image-block hero-block-one"><span>New forms</span></div><div className="image-block hero-block-two"><span>Offcut uniform</span></div></div>
@@ -16,7 +18,7 @@ export default function Home() {
     <section className="feature-band"><h2>New styles for a modern look.</h2><Link href="/shop">Explore all pieces →</Link></section>
     <section className="editorial-section voices"><SectionHeading title="Happy voices" /><p>Real clothes for real days, made in limited quantities and designed to last.</p></section>
     <Newsletter />
-  </main>;
+  </main><StoreFooter /></>;
 }
 
 function SectionHeading({ title }) { return <div className="section-heading"><h2>{title}</h2><Link href="/shop">Shop now →</Link></div>; }
