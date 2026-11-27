@@ -1,0 +1,7 @@
+.store-filter { display: flex; gap: 12px; margin-bottom: 28px; }
+.store-filter input, .store-filter select { border: 1px solid var(--color-border); background: var(--color-surface); padding: 12px; border-radius: var(--radius-card); }
+.store-filter input { min-width: 260px; }
+.store-product-card { color: var(--color-ink); text-decoration: none; }
+.store-placeholder, .garment-placeholder { aspect-ratio: 4 / 5; background: #e9eee8; display: grid; place-items: end start; padding: 16px; color: var(--color-muted); }
+.store-product-meta { display: flex; justify-content: space-between; gap: 12px; padding-top: 12px; font-size: 13px; }
+@media (max-width: 600px) { .store-filter { display: grid; } .store-filter input { min-width: 0; width: 100%; } }

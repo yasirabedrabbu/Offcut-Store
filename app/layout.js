@@ -1,5 +1,6 @@
 import './globals.css';
 import '../src/styles/editorial.css';
+import '../src/styles/store.css';
 import { CartProvider } from '../lib/cart';
 import Shell from '../components/Shell';
 
