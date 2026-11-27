@@ -11,7 +11,8 @@
     "lint": "tsc --noEmit",
     "check-lines": "node scripts/check-lines.mjs",
     "check-banned-css": "node scripts/check-banned-css.mjs",
-    "check": "npm run typecheck && npm run lint && npm run check-lines && npm run check-banned-css && npm run build"
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run lint && npm run check-lines && npm run check-banned-css && npm run test && npm run build"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
