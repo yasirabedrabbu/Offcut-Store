@@ -1,0 +1,16 @@
+{
+  "name":"offcut-store",
+  "version": "1.0.0",
+  "description": "Offcut streetwear store with 3D clothing rail hero, built with Next.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

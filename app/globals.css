@@ -1,0 +1,49 @@
+:root{--bg:#0b0b0c;--ink:#f1efec;--mute:#8d8a86;--red:#b3121b}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--bg)}
+body{color:var(--ink);font-family:"Inter","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;-webkit-user-select:none;user-select:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+#art{position:absolute;width:1500px;height:1000px;transform-origin:0 0;background:radial-gradient(ellipse 70% 55% at 50% 40%,#18181a,var(--bg))}
+#art>*{position:absolute}
+.ui{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.pill{height:34px;padding:0 20px;border:1px solid rgba(241,239,236,.6);border-radius:40px;display:inline-grid;place-items:center;transition:background .25s,color .25s}
+.pill:hover{background:var(--ink);color:var(--bg)}
+.dim{transition:opacity .7s cubic-bezier(.2,.8,.2,1),filter .7s}
+body.open .dim{opacity:.12;filter:blur(2px)}
+body.open .dimmer{opacity:0;pointer-events:none}
+#about{left:46px;top:46px}
+#contact{right:46px;top:46px}
+#logo{left:50%;top:26px;transform:translateX(-50%);font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:64px;line-height:1;letter-spacing:.01em;color:var(--ink)}
+#rail{left:150px;right:150px;top:254px;height:12px;border-radius:6px;background:linear-gradient(180deg,#fafafa 0%,#b9bcc1 28%,#5d6066 55%,#a9adb3 78%,#e6e7e9 100%);box-shadow:0 10px 18px rgba(0,0,0,.45)}
+#rail::before,#rail::after{content:"";position:absolute;width:16px;height:30px;border-radius:5px;top:-9px;background:linear-gradient(90deg,#8d9096,#f3f3f4 45%,#7a7d83)}
+#rail::before{left:-14px}
+#rail::after{right:-14px}
+#rack{left:0;top:0;width:1500px;height:1000px}
+.g{position:absolute;top:236px;width:289px;height:300px;margin-left:-144.5px;perspective:900px;cursor:pointer;transition:left .75s cubic-bezier(.2,.8,.2,1)}
+.g i{position:absolute;inset:0;background-repeat:no-repeat;transform-origin:50% 4%;transform:rotateY(-74deg);filter:brightness(.82) drop-shadow(0 18px 18px rgba(0,0,0,.5));transition:transform .75s cubic-bezier(.2,.8,.2,1),filter .75s}
+.g.face i{transform:rotateY(0deg);filter:brightness(1) drop-shadow(0 22px 26px rgba(0,0,0,.55))}
+#cap{top:552px;transform:translateX(-50%);text-align:center;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);white-space:nowrap;pointer-events:none;opacity:0;transition:left .75s cubic-bezier(.2,.8,.2,1),opacity .35s}
+#cap.on{opacity:1}
+#cap b{display:block;color:var(--ink);font-weight:500;margin-bottom:4px}
+#avail{left:50%;top:790px;transform:translateX(-50%)}
+#band{left:0;right:0;bottom:0;height:46px;background:var(--red);overflow:hidden;display:flex;align-items:center}
+#band div{display:flex;white-space:nowrap;font-size:13px;font-weight:600;letter-spacing:.14em;animation:mq 22s linear infinite}
+#band span{padding-right:22px}
+@keyframes mq{to{transform:translateX(-50%)}}
+#det{inset:0;pointer-events:none}
+body.open #det{pointer-events:auto}
+.hit{position:absolute;inset:0}
+#big,#big2{position:absolute;left:50%;top:244px;width:473px;height:492px;margin-left:-236.5px;background-repeat:no-repeat;opacity:0;pointer-events:none}
+#big{transform-origin:50% 4%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+body.open #big{pointer-events:auto}
+.arr{position:absolute;top:452px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(241,239,236,.5);display:grid;place-items:center;opacity:0;transition:opacity .4s .25s,background .2s,color .2s}
+.arr:hover{background:var(--ink);color:var(--bg)}
+#prev{left:calc(50% - 300px)}
+#next{left:calc(50% + 254px)}
+#info{left:50%;top:770px;transform:translateX(-50%);text-align:center;opacity:0;transition:opacity .5s .25s}
+#num{font-size:11px;letter-spacing:.16em;color:var(--mute)}
+#name{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:40px;line-height:1.15;color:var(--ink);margin:8px 0 6px}
+#price{font-size:13px;letter-spacing:.08em;color:var(--mute);margin-bottom:18px}
+#close{right:46px;top:46px;opacity:0;transition:opacity .4s .25s}
+body.open #info,body.open .arr,body.open #close{opacity:1}
+body.open .arr,body.open #close{pointer-events:auto}
