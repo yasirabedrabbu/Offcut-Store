@@ -6,9 +6,10 @@ import { ProductCard } from '../../src/components/store/ProductCard';
 
 export const metadata = { title: 'Shop | Offcut' };
 
-export default function Shop({ searchParams }) {
-  const query = String(searchParams?.q || '').toLowerCase();
-  const sort = String(searchParams?.sort || 'new');
+export default async function Shop({ searchParams }) {
+  const filters = await searchParams;
+  const query = String(filters?.q || '').toLowerCase();
+  const sort = String(filters?.sort || 'new');
   const items = ITEMS.filter((item) => item.name.toLowerCase().includes(query)).sort((a, b) => sort === 'price' ? a.amount - b.amount : sort === 'name' ? a.name.localeCompare(b.name) : a.k - b.k);
   return (
     <section className="wrap">
