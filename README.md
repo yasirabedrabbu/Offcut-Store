@@ -1,73 +1,72 @@
-# Offcut Hero
+# Offcut Store
 
-A dark, minimal streetwear shop hero built with Next.js. Ten garments hang edge-on in real CSS 3D on a chrome rail. Hover one and it swings round to face you. Click it and it lifts into a large detail view.
+Offcut is a customizable clothing storefront and operations dashboard for Bangladesh.
+It uses Next.js App Router, TypeScript boundaries, Supabase, Zod, and flat token-based
+CSS. The original 3D rail remains available as a hero variant; the default home page
+uses the editorial storefront layout.
 
-## Features
-
-- Fixed 1500 x 1000 artboard that scales to fit any window
-- Ten garments in CSS 3D (`rotateY` with `perspective: 900px`)
-- Hover opens a gap in the rail and shows a caption
-- Detail view with prev/next, counter, name and price
-- Keyboard support: arrow keys, Enter, Escape
-- Red scrolling marquee band
-- Garments cut from a single sprite sheet with per-garment clip paths
-
-## Getting started
+## Development
 
 ```bash
 npm install
+copy .env.example .env.local
 npm run dev
 ```
 
-Open http://localhost:3000
+Open `http://localhost:3000`.
 
-## Build
+## Environment
+
+Required for authentication, database, storage, and server actions:
+
+```text
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+ADMIN_EMAIL=
+```
+
+Apply migrations from `supabase/migrations` in numeric order using the Supabase
+dashboard or Supabase CLI. Create the `media` storage bucket and configure its
+policies from migration `004_media.sql`.
+
+## Routes
+
+- Storefront: `/`, `/shop`, `/search`, `/collection/new`, `/cart`
+- Account: `/login`, `/register`, `/account`
+- Checkout: `/checkout`, `/track`
+- Admin: `/admin`, `/admin/products`, `/admin/orders`, `/admin/media`,
+  `/admin/appearance`, `/admin/analytics`
+
+## Quality commands
 
 ```bash
+npm run typecheck
+npm run test
+npm run check-lines
+npm run check-banned-css
 npm run build
-npm start
+npm run check
 ```
 
-## Controls
+Every source, migration, config, and script file is limited to 100 lines by the
+line checker. Visual effects use flat fills and borders. Media is represented by
+database records and neutral placeholders until an administrator uploads assets.
 
-| Key | Rail | Detail view |
-|---|---|---|
-| Right arrow | Face next garment | Next |
-| Left arrow | Face previous garment | Previous |
-| Enter | Open faced garment | Nothing |
-| Escape | Nothing | Close |
+## Architecture
 
-## Project structure
+- `app/`: existing JavaScript storefront routes and metadata.
+- `src/app/`: TypeScript account, checkout, admin, and API routes.
+- `src/components/`: reusable storefront, admin, auth, and checkout components.
+- `src/lib/`: typed validation, auth, catalog, checkout, theme, content, and storage.
+- `supabase/migrations/`: one numbered concern per migration.
+- `scripts/`: repository compliance checks.
 
-```
-app/
-  layout.js      fonts, metadata
-  page.js        all logic and markup
-  globals.css    all styles
-lib/
-  data.js        products, clip polygons, sprite constants
-```
+## Production notes
 
-## Sprite sheet
-
-The garments come from one transparent sprite sheet (2048 x 1360, 5 columns x 2 rows), set as `SHEET` in `lib/data.js`.
-
-To use it offline:
-
-1. Download the sheet from the URL in `lib/data.js`.
-2. Save it as `public/sheet.webp`.
-3. Set `SHEET = "/sheet.webp"` in `lib/data.js`.
-
-## Tech
-
-- Next.js (App Router)
-- React
-- Plain CSS
-- Web Animations API
-
-## Fonts
-
-Inter, Instrument Serif (italic) and UnifrakturMaguntia, loaded from Google Fonts.
+Configure Supabase Auth redirect URLs for the production domain. Never expose
+service-role keys in browser code. Payment, courier, SMS, and email provider
+credentials belong in server-side adapters and dashboard secrets.
 
 ## License
 

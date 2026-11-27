@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getSupabase } from '@/lib/auth/server';
 
-const schema = z.object({ name: z.string().min(1).max(80), value: z.record(z.unknown()).default({}) });
+const schema = z.object({ name: z.string().min(1).max(80), value: z.record(z.string(), z.unknown()).default({}) });
 
 export async function POST(request: Request) {
   const parsed = schema.safeParse(await request.json());
