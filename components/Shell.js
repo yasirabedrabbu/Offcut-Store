@@ -6,7 +6,7 @@ import { useCart } from '../lib/cart';
 export default function Shell({ children }) {
   const path = usePathname();
   const { count } = useCart();
-  if (path === '/') return children;
+  if (path === '/' || path.startsWith('/login') || path.startsWith('/register') || path.startsWith('/admin') || path.startsWith('/account') || path.startsWith('/checkout')) return children;
   return (
     <>
       <header className="nav">
