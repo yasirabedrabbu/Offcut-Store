@@ -2,4 +2,9 @@
 .auth-brand { background: var(--color-ink); color: var(--color-surface); padding: 64px; }
 .auth-form { padding: 64px; display: grid; align-content: center; gap: 16px; max-width: 520px; }
 .auth-form a { color: var(--color-ink); }
+.auth-fields { display: grid; gap: 14px; }
+.auth-fields label { display: grid; gap: 6px; }
+.auth-fields input { border: 1px solid var(--color-border); padding: 12px; border-radius: var(--radius-card); }
+.auth-fields button { border: 0; padding: 12px; background: var(--color-ink); color: var(--color-surface); border-radius: var(--radius-pill); cursor: pointer; }
+.auth-fields p { color: #a31818; }
 @media (max-width: 760px) { .auth-page { grid-template-columns: 1fr; } .auth-brand, .auth-form { padding: 32px 20px; } }
