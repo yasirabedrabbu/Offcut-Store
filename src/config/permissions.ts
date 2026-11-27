@@ -18,7 +18,7 @@ export const PERMISSIONS: Record<Role, readonly Permission[]> = {
   admin: all.filter((permission) => !permission.startsWith('team:delete')),
   packer: staff,
   support: ['overview:read', 'orders:read', 'customers:read', 'reviews:read', 'media:read'],
-  customer: [],
+  customer: [] as Permission[],
 };
 
 export function hasPermission(role: Role, permission: Permission): boolean {

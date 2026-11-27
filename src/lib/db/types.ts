@@ -1,4 +1,4 @@
-export type Role = 'owner' | 'admin' | 'packer' | 'support';
+export type Role = 'owner' | 'admin' | 'packer' | 'support' | 'customer';
 export type OrderStatus = 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled';
 
 export interface Product {
